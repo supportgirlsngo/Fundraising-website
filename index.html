@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support Girls' Education</title>
+  <style>
+    body { font-family: 'Arial', sans-serif; text-align: center; padding: 20px; background-color: #ffe6f2; color: #333; }
+    .container { max-width: 700px; margin: auto; padding: 30px; border: 1px solid #ddd; border-radius: 15px; background-color: white; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+    h1 { color: #e91e63; }
+    h2 { color: #d81b60; font-style: italic; }
+    .highlight { color: #e91e63; font-weight: bold; }
+    button { padding: 12px 20px; background: #e91e63; color: white; border: none; cursor: pointer; border-radius: 5px; font-size: 16px; }
+    button:hover { background: #c2185b; }
+    input, select { padding: 10px; margin: 10px 0; width: 100%; border-radius: 5px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Support Girls' Education</h1>
+    <h2>"A small sacrifice for you, a life-changing opportunity for her."</h2>
+    <p>
+      What if <span class="highlight">your weekend party</span> or a <span class="highlight">single meal</span> at a fancy restaurant could change a girl's future? Millions of girls are denied education due to poverty, safety concerns, and lack of basic infrastructure. <span class="highlight">But you can make a difference.</span>
+    </p>
+    <h3>The Harsh Reality</h3>
+    <p>
+      For many families, food, water, and survival come before education. When money is tight, boys are prioritized, and girls are forced to leave school to work or care for their families. <span class="highlight">55% of women</span> in low and middle-income families never get the chance to complete their education.
+    </p>
+    <h3>Safety Fears</h3>
+    <p>
+      Parents hesitate to send their daughters to school, fearing for their safety. In conflict-affected areas, <span class="highlight">girls are 2.5 times more likely</span> to drop out. Lack of secure transportation and unsafe routes prevent millions from attending school.
+    </p>
+    <h3>Women’s Economic Empowerment</h3>
+    <p>
+      Women’s economic empowerment is often overlooked. For too long, women have been undervalued & underrepresented in the economic world. <span class="highlight">Now is the time to change that.</span> By recognizing their value & contributions, we can build a more just and equal society.
+    </p>
+    <p>
+      Today, women are <span class="highlight">leading companies</span> and transforming their communities. Homemakers have become entrepreneurs. They are going above & beyond to establish a life for themselves. <span class="highlight">Your support can help them achieve their dreams.</span>
+    </p>
+    <p>
+      <strong>Your kindness can change lives.</strong> By donating today, you can help provide essential supplies, tuition fees, and a safe space for girls to learn and thrive. Even <span class="highlight">one rupee or one dollar</span> can make a difference in shaping a better future for these girls.
+    </p>
+    
+    <!-- Donation Inputs -->
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Your Email">
+    <input type="number" id="donation" placeholder="Enter donation amount" min="1">
+    <select id="currency">
+      <option value="USD">USD</option>
+      <option value="INR">INR</option>
+    </select>
+    
+    <!-- PayPal.Me Donation Button -->
+    <button onclick="redirectToPayPal()">Donate with PayPal</button>
+  </div>
+  
+  <script>
+    function redirectToPayPal() {
+      let amount = parseFloat(document.getElementById('donation').value);
+      let currency = document.getElementById('currency').value;
+      
+      if (!isNaN(amount) && amount > 0) {
+        // Convert INR to USD using an approximate conversion rate, if necessary.
+        if (currency === 'INR') {
+          amount = amount * 0.012;
+        }
+        // Format the amount to two decimal places.
+        amount = amount.toFixed(2);
+        
+        // Build the PayPal.Me URL with the donation amount.
+        let url = `https://www.paypal.me/SupportGirlsNgo/${amount}`;
+        
+        // Open the PayPal.Me link in a new tab.
+        window.open(url, '_blank');
+      } else {
+        alert("Please enter a valid donation amount");
+      }
+    }
+  </script>
+</body>
+</html>
